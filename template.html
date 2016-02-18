@@ -1,0 +1,109 @@
+<!--
+ 
+Dropshare Landing Page
+Florian Egermann 2016
+www.fleg.de
+
+Features: 
+* Centered
+* Image and Media are embedded by default, generic file types are replaced with an icon (Font Awesome).
+ 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta name="generator" content="Dropshare http://getdropsha.re" />
+                    <meta property="twitter:card" content="photo" />
+                    <meta property="twitter:image" content="__PREVIEWURL__" [^] />
+                    <meta property="twitter:title" content="__FILENAME__" />
+                    <title>__FILENAME__</title>
+                    <link href='https://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                        <script type="text/javascript">
+                            
+                            window.onload = function() {
+                              var targetDiv = document.getElementById('icon');
+                              var fileType = "__FILETYPE__";
+                              // These Media Types will not be replaced by the generic icon
+                              var mediaTypes = ['public.png', 'public.jpeg', 'com.apple.quicktime-movie', 'public.mpeg-4']; 
+                              var found = mediaTypes.indexOf(fileType);
+                            
+                              if (found == -1) {
+                                targetDiv.className += "fa fa-file";
+                              }
+                            }
+                        </script>
+                        <style type="text/css">
+                        body {
+                            background: #FFF;
+                            font-family: Karla;
+                            text-align: center;
+                        }
+                        
+                        div.container {
+                              position:absolute;
+                              top:50%;
+                              left:50%;
+                              padding:20px;
+                              -ms-transform: translateX(-50%) translateY(-50%);
+                              -webkit-transform: translate(-50%,-50%);
+                              transform: translate(-50%,-50%);
+                        }
+                        div.inner {
+
+                        }
+                        .fa {
+                            font-size: 100px;
+                        }
+                        a {
+                            text-decoration: none;
+                            color: #000;
+                        }
+                        div.container div.download {
+                            margin: 25px;
+                        }
+                        div.container div.download a.btn {
+                            margin-bottom: 5px;
+                            font-size: 12pt;
+                            border: 1px solid #000;
+                            padding: 10px;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                        }
+                         div.container div.download a.btn:hover {
+                            background: #000;
+                            color: #FFF;
+                        }
+                        
+                        /* preview types */
+                        img {
+                            max-width: 100%;
+                            max-height: 80vh;
+                        }
+                        video, iframe {
+                            height: auto;
+                            max-height: 80vh;
+                            width: 100%;
+                        }
+                        iframe {
+                            height: 80vh;
+                        }
+                        </style>
+                        </head>
+    <body>
+        <div class="container">
+            <div class="inner">
+                <div id="icon">__PREVIEW__</div>
+            <h1><a class="file-title" href="__PATH__">__FILENAME__</a></h1>
+            <div class="download">
+                <a href="__PATH__" class="btn">Download ( __FILESIZE__ )</a><br />
+            </div>
+         </div>
+        </div>
+    </body>
+</html>
